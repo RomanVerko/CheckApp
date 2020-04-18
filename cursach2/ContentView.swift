@@ -13,22 +13,32 @@ import Combine
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
     
-    
     func getUser(){
         session.listen()
     }
     
     var body: some View {
-        Group {
+        
+        AnyView({ () -> AnyView in
             if (session.session != nil){
-                Text("Welcome back user!")
-                Button(action: session.signOut){
-                    Text("Sign Out")
-                }
+                return AnyView(TabbedView())
             } else {
-                AuthView()
+                return AnyView (AuthView())
             }
-        }.onAppear(perform: getUser)
+        }()).onAppear(perform: getUser)
+        
+        
+//        Group {
+//            if (session.session != nil){
+//                Text("Welcome back user!")
+//                Button(action: session.signOut){
+//                    Text("Sign Out")
+//                TabbedView()
+//                }
+//            } else {
+//                AuthView()
+//            }
+//        }.onAppear(perform: getUser)
     }
 }
 

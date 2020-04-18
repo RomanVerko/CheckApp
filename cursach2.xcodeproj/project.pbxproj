@@ -16,6 +16,11 @@
 		1A738C362447C16100F42519 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A738C352447C16100F42519 /* GoogleService-Info.plist */; };
 		1A738C382448EEA600F42519 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C372448EEA600F42519 /* SessionStore.swift */; };
 		1A738C3A2448F2E100F42519 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C392448F2E100F42519 /* AuthView.swift */; };
+		1A738C3C244B716D00F42519 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C3B244B716D00F42519 /* PersonalView.swift */; };
+		1A738C3E244B742000F42519 /* CirclePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C3D244B742000F42519 /* CirclePhoto.swift */; };
+		1A738C41244B80F900F42519 /* TabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C40244B80F900F42519 /* TabbedView.swift */; };
+		1A738C48244BBB0E00F42519 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C47244BBB0E00F42519 /* CardView.swift */; };
+		1A738C4A244BBB6500F42519 /* TestBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C49244BBB6500F42519 /* TestBarView.swift */; };
 		9D5B5F0A286AD4466FF452DE /* Pods_cursach2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC45D870F4AD130D0DB6441A /* Pods_cursach2.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +36,11 @@
 		1A738C352447C16100F42519 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1A738C372448EEA600F42519 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		1A738C392448F2E100F42519 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		1A738C3B244B716D00F42519 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
+		1A738C3D244B742000F42519 /* CirclePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePhoto.swift; sourceTree = "<group>"; };
+		1A738C40244B80F900F42519 /* TabbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedView.swift; sourceTree = "<group>"; };
+		1A738C47244BBB0E00F42519 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1A738C49244BBB6500F42519 /* TestBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBarView.swift; sourceTree = "<group>"; };
 		94D6894A8245C8C5F2221BFF /* Pods-cursach2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cursach2.release.xcconfig"; path = "Target Support Files/Pods-cursach2/Pods-cursach2.release.xcconfig"; sourceTree = "<group>"; };
 		BC45D870F4AD130D0DB6441A /* Pods_cursach2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cursach2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ABACCE7212AADA266511A2 /* Pods-cursach2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cursach2.debug.xcconfig"; path = "Target Support Files/Pods-cursach2/Pods-cursach2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,12 +91,15 @@
 				1A738C212447C0B000F42519 /* AppDelegate.swift */,
 				1A738C232447C0B000F42519 /* SceneDelegate.swift */,
 				1A738C252447C0B000F42519 /* ContentView.swift */,
+				1A738C40244B80F900F42519 /* TabbedView.swift */,
 				1A738C392448F2E100F42519 /* AuthView.swift */,
 				1A738C372448EEA600F42519 /* SessionStore.swift */,
-				1A738C272447C0B200F42519 /* Assets.xcassets */,
 				1A738C2C2447C0B200F42519 /* LaunchScreen.storyboard */,
 				1A738C2F2447C0B200F42519 /* Info.plist */,
 				1A738C352447C16100F42519 /* GoogleService-Info.plist */,
+				1A738C272447C0B200F42519 /* Assets.xcassets */,
+				1A738C46244BBA9900F42519 /* TestView */,
+				1A738C3F244B742900F42519 /* PersonalView */,
 				1A738C292447C0B200F42519 /* Preview Content */,
 			);
 			path = cursach2;
@@ -98,6 +111,24 @@
 				1A738C2A2447C0B200F42519 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A738C3F244B742900F42519 /* PersonalView */ = {
+			isa = PBXGroup;
+			children = (
+				1A738C3B244B716D00F42519 /* PersonalView.swift */,
+				1A738C3D244B742000F42519 /* CirclePhoto.swift */,
+			);
+			path = PersonalView;
+			sourceTree = "<group>";
+		};
+		1A738C46244BBA9900F42519 /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				1A738C47244BBB0E00F42519 /* CardView.swift */,
+				1A738C49244BBB6500F42519 /* TestBarView.swift */,
+			);
+			path = TestView;
 			sourceTree = "<group>";
 		};
 		6E88F464E245FF42428A91B8 /* Frameworks */ = {
@@ -224,10 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A738C3C244B716D00F42519 /* PersonalView.swift in Sources */,
 				1A738C222447C0B000F42519 /* AppDelegate.swift in Sources */,
+				1A738C41244B80F900F42519 /* TabbedView.swift in Sources */,
+				1A738C3E244B742000F42519 /* CirclePhoto.swift in Sources */,
+				1A738C4A244BBB6500F42519 /* TestBarView.swift in Sources */,
 				1A738C3A2448F2E100F42519 /* AuthView.swift in Sources */,
 				1A738C242447C0B000F42519 /* SceneDelegate.swift in Sources */,
 				1A738C382448EEA600F42519 /* SessionStore.swift in Sources */,
+				1A738C48244BBB0E00F42519 /* CardView.swift in Sources */,
 				1A738C262447C0B000F42519 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
