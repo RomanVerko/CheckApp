@@ -19,11 +19,20 @@ struct TabbedView: View {
                 Text("Account")
                 }).tag(0)
         
-            TestBarView().tabItem({
+            NavigationView{
+                 TestBarView()
+            }
+            .tabItem({
             Image(systemName: "message.fill")
                 .font(.title)
             Text("Requests")
             }).tag(1)
+            
+            AnalyticsView().tabItem({
+               Image(systemName: "arrow.up.arrow.down.square.fill")
+                   .font(.title)
+               Text("Analytics")
+               }).tag(1)
         }
     }
 }

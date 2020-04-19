@@ -8,19 +8,23 @@
 
 import SwiftUI
 
-struct CardView: View{
+struct CardView: Identifiable, View{
+    var id = UUID()
     let date: String
     let teamName:String
     let color: Color
     let pic: String
+    @State var isPresented = false
     
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: [color,Color.blue]), startPoint: .bottom, endPoint: .topLeading))
+                .fill(Color.blue)
                 .frame(width: 220, height: 300, alignment: .center)
-            .cornerRadius(20)
-            
+                .cornerRadius(20)
+                .shadow(radius: 5)
+                
+        
             VStack{
                 HStack(alignment: .center){
                     Text(date).padding()
@@ -28,29 +32,29 @@ struct CardView: View{
                 }
                 .foregroundColor(Color.white)
                 .font(.system(size: 32, weight: .semibold))
-                Image(pic)
+                Image(systemName: "photo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 140)
-                    .shadow(color: Color.white, radius: 2)
                     .offset(y: -20)
+                    .foregroundColor(.white)
                 
-                if pic == "testReq"{
-                    Text("some test requests")
-                        .font(.caption)
-                        .foregroundColor(.white)
-                    .offset(y: -30)
-                } else {
-                    Text("work photo requests")
-                       .font(.caption)
-                       .foregroundColor(.white)
-                   .offset(y: -30)
-                }
+//                if pic == "testReq"{
+//                    Text("some test requests")
+//                        .font(.caption)
+//                        .foregroundColor(.white)
+//                    .offset(y: -30)
+//                } else {
+//                    Text("work photo requests")
+//                       .font(.caption)
+//                       .foregroundColor(.white)
+//                   .offset(y: -30)
+//                }
                 
                 
                 Text(teamName)
                 .foregroundColor(Color.white)
-                .font(.system(size: 32, weight: .semibold))
+                    .font(.system(size: 32, weight: .light))
                 .offset(y: -10)
             }
         }
