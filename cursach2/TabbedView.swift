@@ -20,7 +20,7 @@ struct TabbedView: View {
                 }).tag(0)
         
             NavigationView{
-                 TestBarView()
+                 MainView()
             }
             .tabItem({
             Image(systemName: "message.fill")

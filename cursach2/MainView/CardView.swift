@@ -19,7 +19,7 @@ struct CardView: Identifiable, View{
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.blue)
+                .fill(color)
                 .frame(width: 220, height: 300, alignment: .center)
                 .cornerRadius(20)
                 .shadow(radius: 5)
@@ -32,25 +32,12 @@ struct CardView: Identifiable, View{
                 }
                 .foregroundColor(Color.white)
                 .font(.system(size: 32, weight: .semibold))
-                Image(systemName: "photo")
+                Image(systemName: pic)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 140)
+                    .frame(width: 110)
                     .offset(y: -20)
                     .foregroundColor(.white)
-                
-//                if pic == "testReq"{
-//                    Text("some test requests")
-//                        .font(.caption)
-//                        .foregroundColor(.white)
-//                    .offset(y: -30)
-//                } else {
-//                    Text("work photo requests")
-//                       .font(.caption)
-//                       .foregroundColor(.white)
-//                   .offset(y: -30)
-//                }
-                
                 
                 Text(teamName)
                 .foregroundColor(Color.white)
@@ -64,8 +51,8 @@ struct CardView: Identifiable, View{
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            CardView(date: "7 MAR", teamName: "HSE Inc.", color: Color.red, pic: "testReq")
-            CardView(date: "6 APR", teamName: "Work Comp.", color: Color.gray, pic: "imageReq")
+            CardView(date: "7 MAR", teamName: "HSE Inc.", color: Color.red, pic: "photo")
+            CardView(date: "6 APR", teamName: "Work Comp.", color: Color.gray, pic: "checkmark")
         }
         
     }
