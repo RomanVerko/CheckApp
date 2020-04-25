@@ -12,6 +12,9 @@ struct TestView: View {
     @State var aim: String = ""
     @State var progress: Double = 5
     @State var progDesc: String = ""
+    @State var achivements: String = ""
+    @State private var didTap:Bool = false
+    @State var prediction: String = "Contine working for having predictions"
     
     static var aimTest:String = ""//some very very very long description string to be initially wider than screen"
     static var aimtestBinding = Binding<String>(get: { aimTest }, set: {
@@ -32,23 +35,30 @@ struct TestView: View {
     var body: some View {
         VStack(spacing: 30){
             Text("Your aim for this module was")
-             
-            
-//            MultilineTextField("Enter short description", text: TestView.aimtestBinding, onCommit: {
-//                print("Final text: \(TestView.aimTest)")
-//            })
-//                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
-            TextField("Your name", text: $progDesc)
+                .padding(.top, 30)
+                .font(.headline)
+        
+            TextField("Work module", text: $progDesc)
             .font(.system(size: 14))
             .padding(12)
             .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
                                         lineWidth: 1))
              
+            Divider()
             
-            Text("Your progress: \(progDesc)")
-           
+            Text("What have you done:")
+                .font(.headline)
+                   
+
+            TextField("Your achivements", text: $achivements)
+            .font(.system(size: 14))
+            .padding(12)
+            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
+                                        lineWidth: 1))
             
-            Slider(value: $progress, in: 0...5, step: 1)
+        
+            Group{
+            
             if progress == 0{
                 Text("Did not started 😕")
                
@@ -72,40 +82,30 @@ struct TestView: View {
                 Text("🎉 I have done everything 😇")
                  
             }
+            }.padding(.bottom, -15)
+           
+            Slider(value: $progress, in: 0...5, step: 1)
+            
+        
+            Group{
+            Text("Describe results of this working part")
+                .font(.body)
+        
+        
+                Text("\(prediction)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
             
             Spacer()
             
-            
-                Text("Write what did you do:")
-               
-//                MultilineTextField("Enter short description", text: TestView.doneBinding, onCommit: {
-//                              print("Final text: \(TestView.done)")
-//                          })
-//                              .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
-               
-        TextField("Your name", text: $progDesc)
-        .font(.system(size: 14))
-        .padding(12)
-        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
-                                    lineWidth: 1))
-            
-            if progress != 6 {
-                Text("Write what did not you do:")
-               
-//                  MultilineTextField("Enter short description", text: TestView.notDoneBinding, onCommit: {
-//                      print("Final text: \(TestView.notDone)")
-//                  })
-//                      .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
-                TextField("Your name", text: $progDesc)
-                .font(.system(size: 14))
-                .padding(12)
-                .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
-                                            lineWidth: 1))
+           
                 
-            }
             
-            Button(action: {print("holy crap")}){
-                Text("Submit")
+            Button(action: {print("holy crap")
+                self.didTap = true
+            }){
+                Text(didTap ? "Done!" : "Submit")
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 50)
                     .foregroundColor(.white)
@@ -113,7 +113,8 @@ struct TestView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [.purple,.blue]), startPoint: .leading , endPoint: .trailing))
                 .cornerRadius(5)
                 
-            }.padding(.horizontal, 20)
+            }.padding(.horizontal, 40)
+                .padding(.bottom, 35)
              
             
         }.navigationBarTitle("Write your progress")

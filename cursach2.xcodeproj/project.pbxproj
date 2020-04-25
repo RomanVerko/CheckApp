@@ -23,7 +23,6 @@
 		1A738C4A244BBB6500F42519 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C49244BBB6500F42519 /* MainView.swift */; };
 		1AADBA10244CE41700783D38 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AADBA0F244CE41700783D38 /* AnalyticsView.swift */; };
 		1AADBA14244E457500783D38 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AADBA13244E457500783D38 /* TestView.swift */; };
-		1AADBA17244E4B5000783D38 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AADBA16244E4B5000783D38 /* MultilineTextField.swift */; };
 		9D5B5F0A286AD4466FF452DE /* Pods_cursach2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC45D870F4AD130D0DB6441A /* Pods_cursach2.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		1A738C49244BBB6500F42519 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1AADBA0F244CE41700783D38 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		1AADBA13244E457500783D38 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		1AADBA16244E4B5000783D38 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		94D6894A8245C8C5F2221BFF /* Pods-cursach2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cursach2.release.xcconfig"; path = "Target Support Files/Pods-cursach2/Pods-cursach2.release.xcconfig"; sourceTree = "<group>"; };
 		BC45D870F4AD130D0DB6441A /* Pods_cursach2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cursach2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ABACCE7212AADA266511A2 /* Pods-cursach2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cursach2.debug.xcconfig"; path = "Target Support Files/Pods-cursach2/Pods-cursach2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				1AADBA13244E457500783D38 /* TestView.swift */,
-				1AADBA16244E4B5000783D38 /* MultilineTextField.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 			files = (
 				1AADBA14244E457500783D38 /* TestView.swift in Sources */,
 				1A738C3C244B716D00F42519 /* PersonalView.swift in Sources */,
-				1AADBA17244E4B5000783D38 /* MultilineTextField.swift in Sources */,
 				1A738C222447C0B000F42519 /* AppDelegate.swift in Sources */,
 				1A738C41244B80F900F42519 /* TabbedView.swift in Sources */,
 				1A738C3E244B742000F42519 /* CirclePhoto.swift in Sources */,
