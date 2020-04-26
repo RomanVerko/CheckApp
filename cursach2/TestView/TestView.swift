@@ -14,7 +14,7 @@ struct TestView: View {
     @State var progDesc: String = ""
     @State var achivements: String = ""
     @State private var didTap:Bool = false
-    @State var prediction: String = "Contine working for having predictions"
+    @State var prediction: String = ""
     
     static var aimTest:String = ""//some very very very long description string to be initially wider than screen"
     static var aimtestBinding = Binding<String>(get: { aimTest }, set: {

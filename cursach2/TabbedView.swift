@@ -19,10 +19,7 @@ struct TabbedView: View {
                 Text("Account")
                 }).tag(0)
         
-            NavigationView{
-                 MainView()
-            }
-            .tabItem({
+            NavigationView{MainView()}.tabItem({
             Image(systemName: "message.fill")
                 .font(.title)
             Text("Requests")
@@ -32,7 +29,7 @@ struct TabbedView: View {
                Image(systemName: "arrow.up.arrow.down.square.fill")
                    .font(.title)
                Text("Analytics")
-               }).tag(1)
+               }).tag(2)
         }
     }
 }

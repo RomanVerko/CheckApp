@@ -50,7 +50,7 @@ struct MainView: View {
                        }
                    }
                    .padding(.leading, 56.0)
-                   
+                
                 }
               
                 

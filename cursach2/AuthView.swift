@@ -29,7 +29,7 @@ struct SignInView: View {
     var body: some View {
         
         VStack{
-            Text("Welcome Back!")
+            Text("Welcome back!")
                 .font(.system(size: 32, weight: .heavy))
             Text("Sign in to continue")
                 .font(.system(size: 18, weight: .medium))
@@ -117,7 +117,7 @@ struct SignUpView: View {
                 .foregroundColor(.gray)
             
             VStack(spacing: 18){
-                TextField("Your name", text: $name)
+                TextField("Name, surname", text: $name)
                     .font(.system(size: 14))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
