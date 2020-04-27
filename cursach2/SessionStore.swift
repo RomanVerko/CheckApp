@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 import Firebase
 import Combine
 
 class SessionStore: ObservableObject {
+    @Published var db = Firestore.firestore() 
     var didChange = PassthroughSubject<SessionStore, Never>()
     @Published var session: User? {didSet {self.didChange.send(self) }}
     var handle: AuthStateDidChangeListenerHandle?
