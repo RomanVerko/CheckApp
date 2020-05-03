@@ -63,7 +63,6 @@ struct MainView: View {
                 List(modelData) { oldOne in
                     NavigationLink(destination: TestView()){
                         HStack {
-                               // 2.
                                Image(systemName: oldOne.image)
                                    .frame(width: 40, height: 10, alignment: .leading)
                                    .frame(width: 40, height: 10, alignment: .leading)

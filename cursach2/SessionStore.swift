@@ -12,10 +12,13 @@ import Firebase
 import Combine
 
 class SessionStore: ObservableObject {
-    @Published var db = Firestore.firestore() 
+    @Published var db = Firestore.firestore()
+    @Published var isPresentedPersonalSettings = false
     var didChange = PassthroughSubject<SessionStore, Never>()
     @Published var session: User? {didSet {self.didChange.send(self) }}
     var handle: AuthStateDidChangeListenerHandle?
+    
+    
     
     func listen() {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
@@ -30,6 +33,18 @@ class SessionStore: ObservableObject {
     
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+        
+        self.db.collection("users")
+        .document(email)
+            .setData(["email":email
+        ], merge: true){ err in
+                  if let err = err {
+                      print("Error adding document: \(err)")
+                  } else {
+                    print("Document added with email:\(email)")
+                  }
+                        
+        }
     }
     
     func signIn(email : String, password: String, handler: @escaping AuthDataResultCallback){

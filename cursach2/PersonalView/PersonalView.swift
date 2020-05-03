@@ -7,32 +7,71 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import Combine
+import Firebase
 
 struct PersonalView: View {
     @State var isPushOn = true
     @EnvironmentObject var session: SessionStore
-//
-//    func getUser(){
-//        session.listen()
-//    }
+    @ObservedObject var userData:observer = observer()
+   
+    
+    class observer: ObservableObject{
+        
+        @Published var userData = Teammate()
+         var user = Auth.auth().currentUser
+        
+        init(){
+
+            Firestore.firestore().collection("users").document((user?.email)!)
+                .addSnapshotListener{ (snap, err) in
+                    if err != nil {
+                        print((err?.localizedDescription)!)
+                        return
+                    }
+                    self.userData = Teammate()
+                    Firestore.firestore().clearPersistence { (err) in
+                    print((err?.localizedDescription)!)
+                    }
+                    guard let i = snap!.data()
+                        else {print("Houston, we have a problems...")
+                            return
+                    }
+                   let mate =  Teammate(pic: i["pic"] as? String ?? "user",
+                                                          name: i["name"] as? String ?? "defaultname",
+                                                          role: i["role"] as? String ?? "defaultrole",
+                                                          email: i["email"] as? String ?? "defaultemail")
+                self.userData = mate
+            }
+            
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack{
                 Spacer()
-                CirclePhoto()
+                CirclePhoto(pic: userData.userData.pic)
                 Spacer()
             }.padding(.bottom, 30)
         
-            Text("Roman Verko")
+            Text(userData.userData.name)
                 .font(.title)
                 .padding(.vertical, 10)
             HStack {
-                Text("Higher School of Economics")
+                Text(userData.userData.role)
                     .font(.subheadline)
                 Spacer()
-                Text("Project manager")
-                    .font(.subheadline)
+                Button(action: {
+                    self.session.isPresentedPersonalSettings = true
+                }){
+                Text("edit")
+                    .sheet(isPresented: $session.isPresentedPersonalSettings){
+                        PersonalSettings(person: self.userData.userData)
+                                    .environmentObject(self.session)
+                    }
+                }
             }
             Divider().padding()
             
@@ -48,7 +87,7 @@ struct PersonalView: View {
                     .foregroundColor(.gray)
                 Spacer()
             }
-            
+            Group{
             HStack{
                 Text("HSE Team inc.")
                     .fontWeight(.semibold)
@@ -57,6 +96,10 @@ struct PersonalView: View {
                     Text("change")
                 }
             }.padding()
+            
+            
+                
+            }
             Spacer()
             Button(action: session.signOut){
                 Text("Sign out")

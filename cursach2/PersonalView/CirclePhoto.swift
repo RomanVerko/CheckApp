@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct CirclePhoto: View {
+    var pic:String
+    
+    init(pic: String){
+        self.pic = pic
+    }
+    
     var body: some View {
-        Image("avatar")
+        Image(pic)
         .resizable()
         .clipShape(Circle())
         .overlay(
@@ -23,6 +29,6 @@ struct CirclePhoto: View {
 
 struct CirclePhoto_Previews: PreviewProvider {
     static var previews: some View {
-        CirclePhoto()
+        CirclePhoto(pic: "avatar")
     }
 }

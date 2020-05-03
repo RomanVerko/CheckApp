@@ -93,7 +93,6 @@ struct SignUpView: View {
     @State var password: String = ""
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
-    @State var name: String = ""
     
     func signUp(){
         session.signUp(email: email, password: password){ (result, error) in
@@ -117,12 +116,7 @@ struct SignUpView: View {
                 .foregroundColor(.gray)
             
             VStack(spacing: 18){
-                TextField("Name, surname", text: $name)
-                    .font(.system(size: 14))
-                    .padding(12)
-                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray,
-                                                                               lineWidth: 1))
-                
+               
                 TextField("Email address", text: $email)
                     .font(.system(size: 14))
                     .padding(12)
