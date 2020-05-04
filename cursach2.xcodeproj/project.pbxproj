@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A57DC35245DD5030075E3C1 /* PersonalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DC34245DD5030075E3C1 /* PersonalSettings.swift */; };
 		1A57DC39245F2DE30075E3C1 /* Teammate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DC38245F2DE30075E3C1 /* Teammate.swift */; };
-		1A57DC3B245F415C0075E3C1 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DC3A245F415C0075E3C1 /* Observer.swift */; };
 		1A738C222447C0B000F42519 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C212447C0B000F42519 /* AppDelegate.swift */; };
 		1A738C242447C0B000F42519 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C232447C0B000F42519 /* SceneDelegate.swift */; };
 		1A738C262447C0B000F42519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A738C252447C0B000F42519 /* ContentView.swift */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		1A57DC34245DD5030075E3C1 /* PersonalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSettings.swift; sourceTree = "<group>"; };
 		1A57DC38245F2DE30075E3C1 /* Teammate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teammate.swift; sourceTree = "<group>"; };
-		1A57DC3A245F415C0075E3C1 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1A738C1E2447C0B000F42519 /* cursach2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cursach2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A738C212447C0B000F42519 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A738C232447C0B000F42519 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				1A738C3B244B716D00F42519 /* PersonalView.swift */,
 				1A738C3D244B742000F42519 /* CirclePhoto.swift */,
 				1A57DC34245DD5030075E3C1 /* PersonalSettings.swift */,
-				1A57DC3A245F415C0075E3C1 /* Observer.swift */,
 			);
 			path = PersonalView;
 			sourceTree = "<group>";
@@ -287,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AADBA14244E457500783D38 /* TestView.swift in Sources */,
-				1A57DC3B245F415C0075E3C1 /* Observer.swift in Sources */,
 				1A738C3C244B716D00F42519 /* PersonalView.swift in Sources */,
 				1A738C222447C0B000F42519 /* AppDelegate.swift in Sources */,
 				1A738C41244B80F900F42519 /* TabbedView.swift in Sources */,

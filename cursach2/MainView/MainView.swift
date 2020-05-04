@@ -7,6 +7,10 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import Combine
+import FirebaseAuth
 
 struct OldOnes: Identifiable {
     var id = UUID()
@@ -24,22 +28,71 @@ OldOnes(image: "square.and.pencil", city: "Code review")]
 struct MainView: View {
     @State var isNavigationBarHidden: Bool = true
     @State var isPresented = true
-    var cards:[CardView]=[CardView(date: "6 APR", teamName: "Work Comp.", color: Color.blue, pic: "photo"),
-     CardView(date: "8 APR", teamName: "HSE Inc.", color: Color.red, pic: "square.and.pencil"),
-     CardView(date: "9 MAR", teamName: "ART sc.", color: Color.green, pic: "checkmark"),
-     CardView(date: "12 MAR", teamName: "HSE.", color: Color.purple, pic: "text.badge.checkmark"),
-     CardView(date: "15 FEB", teamName: "Work Comp.", color: Color.orange, pic: "square.and.pencil")]
+    
+    @ObservedObject var checkoutData = observer()
+    
+    var checkouts: [CardView] = []
+
+       
+       class observer: ObservableObject{
+               
+            @Published var UndoneCheckouts = [CardView]()
+            @Published var DoneChekouts = [CardView]()
+              
+              init(){
+                let db = Firestore.firestore().collection("results").whereField("email", isEqualTo: (Auth.auth().currentUser?.email)!)
+                  
+                  db.addSnapshotListener{ (snap, err) in
+                       
+                      if err != nil{
+                          print((err?.localizedDescription)!)
+                          return
+                      }
+                    
+                      self.UndoneCheckouts = [CardView]()
+                      self.DoneChekouts = [CardView]()
+                    
+                      Firestore.firestore().clearPersistence { (err) in
+                          print((err?.localizedDescription)!)
+                      }
+                      for i in snap!.documents {
+                          print((i["name"] as? String ?? "default name"))
+                          print((i["desc"] as? String ?? "default description"))
+                        let check = CardView(date: i["date"] as? Date ?? Date(),
+                                             name: i["name"] as? String ?? "default name",
+                                             type: i["type"] as? String ?? "default type",
+                                             desc: i["desc"] as? String ?? "default description",
+                                             email: i["email"] as? String ?? "default email",
+                                             done: i["done"] as? Bool ?? true,
+                                             fireID: i.documentID)
+                        if check.done == false{
+                            self.UndoneCheckouts.append(check)
+                        }
+                        else{
+                            self.DoneChekouts.append(check)
+                        }
+                       self.UndoneCheckouts.sort(by: { $0.date > $1.date })
+                       self.DoneChekouts.sort(by: { $0.date > $1.date })
+                      }
+                      
+                  }
+                
+              }
+              
+          }
+       
+    
     
     var body: some View {
             
             VStack {
                 ScrollView(.horizontal, showsIndicators: false) {
                    HStack(spacing: 60) {
-                       ForEach(cards) { card in
+                    ForEach(self.checkoutData.UndoneCheckouts) { card in
                         NavigationLink(destination: TestView()){
                            VStack {
                                GeometryReader { geo in
-                                  card
+                                    card 
                                    .padding()
                                    .rotation3DEffect(Angle(degrees: (Double(geo.frame(in: .global).minX) - 40) / 20 ), axis: (x:0, y:10.0, z: 0))
 
@@ -60,17 +113,19 @@ struct MainView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
-                List(modelData) { oldOne in
-                    NavigationLink(destination: TestView()){
-                        HStack {
-                               Image(systemName: oldOne.image)
-                                   .frame(width: 40, height: 10, alignment: .leading)
-                                   .frame(width: 40, height: 10, alignment: .leading)
-                               VStack {
-                                   Text(oldOne.city)
-                                       .font(.headline)
-                               }
-                           }.font(.title)
+                List() {
+                    ForEach(self.checkoutData.DoneChekouts){ oldOne in
+                        NavigationLink(destination: TestView()){
+                            HStack {
+                                Image(systemName: oldOne.pic)
+                                    .frame(width: 40, height: 10, alignment: .leading)
+                                    .frame(width: 40, height: 10, alignment: .leading)
+                                VStack {
+                                    Text(oldOne.name)
+                                        .font(.headline)
+                                }
+                            }.font(.title)
+                        }
                     }
                 }
             
