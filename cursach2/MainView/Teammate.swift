@@ -15,6 +15,7 @@ struct Teammate: Identifiable
     var name:String
     var role:String
     var email:String=""
+    var isActive: Bool
   
     
     init(){
@@ -22,21 +23,25 @@ struct Teammate: Identifiable
         self.pic = "user"
         self.name = "username"
         self.role = "role"
+        self.isActive = true
     }
 
-    init(pic: String, name: String, role: String){
+    init(pic: String, name: String, role: String, isActive: Bool){
         self.id = UUID()
         self.pic = pic
         self.name = name
         self.role = role
+        self.isActive = isActive
+        
     }
     
-    init(pic: String, name: String, role: String, email:String){
+    init(pic: String, name: String, role: String, email:String, isActive: Bool){
         self.id = UUID()
         self.pic = pic
         self.name = name
         self.role = role
         self.email = email
+        self.isActive = isActive
     }
     
     init(mate: Teammate){
@@ -44,6 +49,7 @@ struct Teammate: Identifiable
         self.pic = mate.pic
         self.name = mate.name
         self.role = mate.role
+        self.isActive = mate.isActive
     }
     
    

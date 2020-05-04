@@ -22,20 +22,7 @@ struct TestView: View {
     let date = Date()
     let formatter = DateFormatter()
     
-    static var aimTest:String = ""//some very very very long description string to be initially wider than screen"
-    static var aimtestBinding = Binding<String>(get: { aimTest }, set: {
-    //        print("New value: \($0)")
-            aimTest = $0 } )
-    
-    static var done:String = ""//some very very very long description string to be initially wider than screen"
-    static var doneBinding = Binding<String>(get: { done }, set: {
-    //        print("New value: \($0)")
-            done = $0 } )
-    
-    static var notDone:String = ""//some very very very long description string to be initially wider than screen"
-    static var notDoneBinding = Binding<String>(get: { notDone }, set: {
-    //        print("New value: \($0)")
-            notDone = $0 } )
+   
     
     
     var body: some View {

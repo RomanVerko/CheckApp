@@ -12,10 +12,10 @@ import Combine
 import Firebase
 
 struct PersonalView: View {
-    @State var isPushOn = true
+    
     @EnvironmentObject var session: SessionStore
     @ObservedObject var userData:observer = observer()
-   
+    
     
     class observer: ObservableObject{
         
@@ -41,10 +41,11 @@ struct PersonalView: View {
                    let mate =  Teammate(pic: i["pic"] as? String ?? "user",
                                                           name: i["name"] as? String ?? "defaultname",
                                                           role: i["role"] as? String ?? "defaultrole",
-                                                          email: i["email"] as? String ?? "defaultemail")
+                                                          email: i["email"] as? String ?? "defaultemail",
+                                                          isActive: i["isActive"] as? Bool ?? true)
                 self.userData = mate
             }
-            
+           
         }
     }
     
@@ -75,8 +76,25 @@ struct PersonalView: View {
             }
             Divider().padding()
             
-            Toggle(isOn: $isPushOn){
-                Text("Push notifications")
+            HStack{
+                if userData.userData.isActive == true{
+                    Text("Active member")
+                } else {
+                    Text("Notifications disabled")
+                }
+                Spacer()
+                Button(action: {
+                    self.userData.userData.isActive.toggle()
+                    Firestore.firestore().collection("users").document((self.userData.user?.email)!)
+                    .setData(["isActive" : self.userData.userData.isActive], merge: true)
+                }){
+                    if userData.userData.isActive == true{
+                        Text("Disable")
+                    } else {
+                        Text("Enable")
+                    }
+                }
+                
             }
             
             Divider().padding()
