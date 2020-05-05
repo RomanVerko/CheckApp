@@ -89,7 +89,7 @@ struct MainView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                    HStack(spacing: 60) {
                     ForEach(self.checkoutData.UndoneCheckouts) { card in
-                        NavigationLink(destination: TestView()){
+                        NavigationLink(destination: TestView(cardView: card)){
                            VStack {
                                GeometryReader { geo in
                                     card 
@@ -115,7 +115,7 @@ struct MainView: View {
                 }
                 List() {
                     ForEach(self.checkoutData.DoneChekouts){ oldOne in
-                        NavigationLink(destination: TestView()){
+                        NavigationLink(destination: TestView(cardView: oldOne)){
                             HStack {
                                 Image(systemName: oldOne.pic)
                                     .frame(width: 40, height: 10, alignment: .leading)

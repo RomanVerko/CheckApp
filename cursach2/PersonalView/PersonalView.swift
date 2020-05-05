@@ -76,25 +76,34 @@ struct PersonalView: View {
             }
             Divider().padding()
             
-            HStack{
-                if userData.userData.isActive == true{
-                    Text("Active member")
-                } else {
-                    Text("Notifications disabled")
+            VStack {
+                HStack{
+                    Spacer()
+                    Text("Incoming checkouts")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    Spacer()
                 }
-                Spacer()
-                Button(action: {
-                    self.userData.userData.isActive.toggle()
-                    Firestore.firestore().collection("users").document((self.userData.user?.email)!)
-                    .setData(["isActive" : self.userData.userData.isActive], merge: true)
-                }){
+                HStack{
                     if userData.userData.isActive == true{
-                        Text("Disable")
+                        Text("Active member")
                     } else {
-                        Text("Enable")
+                        Text("Notifications disabled")
                     }
-                }
-                
+                    Spacer()
+                    Button(action: {
+                        self.userData.userData.isActive.toggle()
+                        Firestore.firestore().collection("users").document((self.userData.user?.email)!)
+                        .setData(["isActive" : self.userData.userData.isActive], merge: true)
+                    }){
+                        if userData.userData.isActive == true{
+                            Text("Disable")
+                        } else {
+                            Text("Enable")
+                        }
+                    }
+                    
+                }.padding(.top)
             }
             
             Divider().padding()
@@ -113,7 +122,7 @@ struct PersonalView: View {
                 Button(action: {print("action")}){
                     Text("change")
                 }
-            }.padding()
+            }.padding(.top)
             
             
                 

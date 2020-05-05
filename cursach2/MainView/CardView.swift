@@ -23,6 +23,9 @@ struct CardView: Identifiable, View{
     var email: String
     var done:Bool
     let formatter = DateFormatter()
+    var aim = ""
+    var achievements = ""
+    var progress = 0.0
     
     init(date: Date, name: String,type: String, desc:String, email: String, done: Bool, fireID: String){
         self.date = date
@@ -43,6 +46,7 @@ struct CardView: Identifiable, View{
         }
         self.formatter.dateFormat = "dd.MM.yyyy"
     }
+    
     
     var body: some View {
         ZStack{
