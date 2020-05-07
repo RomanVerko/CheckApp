@@ -33,6 +33,7 @@ struct TestView: View {
     
     var body: some View {
         VStack(spacing: 30){
+            if self.cardView.type != "none"{
             Group{
                 
             if (self.cardView.type == mode[0]){
@@ -174,7 +175,15 @@ struct TestView: View {
                     .padding(.bottom, 35)
             }
             
-             
+            }
+            else{
+                VStack{
+                    Text("No new checkouts!")
+                        .font(.largeTitle)
+                    Text("you're up to date!").padding()
+                        .font(.caption)
+                }
+            }
             
         }.navigationBarTitle(self.cardView.name)
         .padding()

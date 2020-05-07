@@ -39,13 +39,20 @@ struct CardView: Identifiable, View{
             colorFirst = .blueFirst
             colorSecond = .blueSecond
             pic = "text.badge.checkmark"
-        } else {
+        } else if type == "none"{
+            colorFirst = .noneFirst
+            colorSecond = .noneSecond
+            pic = "checkmark.circle"
+        }
+        else {
             colorFirst = .purpleFirst
             colorSecond = .purpleSecond
             pic = "person.crop.circle.badge.checkmark"
         }
         self.formatter.dateFormat = "dd.MM.yyyy"
     }
+    
+    
     
     
     var body: some View {
@@ -94,6 +101,8 @@ extension Color {
     static let blueFirst = Color("blueFirst")
     static let blueSecond = Color("blueSecond")
     static let myGray = Color("myGray")
+    static let noneFirst = Color("noneFirst")
+    static let noneSecond = Color("noneSecond")
 }
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {

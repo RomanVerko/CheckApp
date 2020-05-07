@@ -74,7 +74,9 @@ struct MainView: View {
                        self.UndoneCheckouts.sort(by: { $0.date > $1.date })
                        self.DoneChekouts.sort(by: { $0.date > $1.date })
                       }
-                      
+                    if self.UndoneCheckouts.count == 0 {
+                        self.UndoneCheckouts.append(CardView(date: Date(), name: "Nothing new!", type: "none", desc: "you're up to date", email: "", done: false, fireID: ""))
+                    }
                   }
                 
               }
@@ -102,7 +104,7 @@ struct MainView: View {
                         }
                        }
                    }
-                   .padding(.leading, 56.0)
+                   .padding(.leading, 75.0)
                    
                 }.padding(.top, 10)
               
