@@ -34,17 +34,17 @@ class SessionStore: ObservableObject {
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
         
-        self.db.collection("users")
-        .document(email)
-            .setData(["email":email
-        ], merge: true){ err in
-                  if let err = err {
-                      print("Error adding document: \(err)")
-                  } else {
-                    print("Document added with email:\(email)")
-                  }
-                        
-        }
+//        self.db.collection("users")
+//            .document((Auth.auth().currentUser?.email)!)
+//            .setData(["email":email
+//        ], merge: true){ err in
+//                  if let err = err {
+//                      print("Error adding document: \(err)")
+//                  } else {
+//                    print("Document added with email:\(email)")
+//                  }
+//
+//        }
     }
     
     func signIn(email : String, password: String, handler: @escaping AuthDataResultCallback){

@@ -25,7 +25,7 @@ struct TabbedView: View {
             Text("Requests")
             }).tag(1)
             
-            AnalyticsView().tabItem({
+            NavigationView{AnalyticsView(mate: Teammate())}.tabItem({ 
                Image(systemName: "arrow.up.arrow.down.square.fill")
                    .font(.title)
                Text("Analytics")

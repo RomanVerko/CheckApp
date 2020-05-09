@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct PersonalSettings: View {
     var person: Teammate 
@@ -55,10 +56,10 @@ struct PersonalSettings: View {
             Button(action: {
                 if (self.name != "" && self.role != ""){
                     self.session.db.collection("users")
-                        .document((self.session.session?.email)!)
+                        .document((Auth.auth().currentUser?.email)!)
                     .setData(["name":self.name,
-                              "role":self.role
-//                       todo фотографию.
+                              "role":self.role,
+                              "email": (Auth.auth().currentUser?.email)!
                     ], merge: true){ err in
                               if let err = err {
                                   print("Error adding document: \(err)")

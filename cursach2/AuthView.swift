@@ -35,7 +35,7 @@ struct SignInView: View {
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor((Color.gray))
             
-            VStack(spacing: 18){
+            VStack(spacing: 18){ 
                 
                 
                 TextField("Email adress", text: $email)

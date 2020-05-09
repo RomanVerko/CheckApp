@@ -117,7 +117,6 @@ struct MainView: View {
                 }
                 List() {
                     ForEach(self.checkoutData.DoneChekouts){ oldOne in
-                        NavigationLink(destination: TestView(cardView: oldOne)){
                             HStack {
                                 Image(systemName: oldOne.pic)
                                     .frame(width: 40, height: 10, alignment: .leading)
@@ -127,7 +126,6 @@ struct MainView: View {
                                         .font(.headline)
                                 }
                             }.font(.title)
-                        }
                     }
                 }
             

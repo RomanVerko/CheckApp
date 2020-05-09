@@ -28,6 +28,7 @@ struct TestView: View {
    
     init(cardView: CardView){
         self.cardView = cardView
+        self.formatter.dateFormat = "MMM d, h:mm"
     }
     
     
@@ -147,7 +148,7 @@ struct TestView: View {
                                 "achievements":self.achivements,
                                 "progress":self.progress,
                                 "done":true,
-                                "dateDone": Date()
+                                "dateDone": self.formatter.string(from: Date())
                                 ], merge: true)
                             { err in
                                 if let err = err {
