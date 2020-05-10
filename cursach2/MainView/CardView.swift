@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardView: Identifiable, View{
     var id = UUID()
-    var date: Date
+    var date: String
     var teamName:String = ""
     var colorFirst: Color
     var colorSecond: Color
@@ -27,7 +27,7 @@ struct CardView: Identifiable, View{
     var achievements = ""
     var progress = 0.0
     
-    init(date: Date, name: String,type: String, desc:String, email: String, done: Bool, fireID: String){
+    init(date: String, name: String,type: String, desc:String, email: String, done: Bool, fireID: String){
         self.date = date
         self.name = name
         self.type = type
@@ -87,7 +87,7 @@ struct CardView: Identifiable, View{
                     .font(.system(size: 20, weight: .light))
                     
                 
-                Text(self.formatter.string(from: Date()))
+                Text(self.date)
                 .foregroundColor(Color.white)
                     .font(.system(size: 20, weight: .light))
                     .padding(.top)
@@ -107,8 +107,8 @@ extension Color {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            CardView(date: Date(), name: "name", type: "Module results", desc: "desc", email: "email", done: true, fireID: "01010")
-            CardView(date: Date(), name: "name2", type: "Mental health", desc: "desc2", email: "email2", done: true, fireID: "01010")
+            CardView(date: "", name: "name", type: "Module results", desc: "desc", email: "email", done: true, fireID: "01010")
+            CardView(date: "", name: "name2", type: "Mental health", desc: "desc2", email: "email2", done: true, fireID: "01010")
         }
 
     }

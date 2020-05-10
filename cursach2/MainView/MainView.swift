@@ -58,7 +58,7 @@ struct MainView: View {
                       for i in snap!.documents {
                           print((i["name"] as? String ?? "default name"))
                           print((i["desc"] as? String ?? "default description"))
-                        let check = CardView(date: i["date"] as? Date ?? Date(),
+                        let check = CardView(date: i["date"] as? String ?? "Date()",
                                              name: i["name"] as? String ?? "default name",
                                              type: i["type"] as? String ?? "default type",
                                              desc: i["desc"] as? String ?? "default description",
@@ -75,7 +75,7 @@ struct MainView: View {
                        self.DoneChekouts.sort(by: { $0.date > $1.date })
                       }
                     if self.UndoneCheckouts.count == 0 {
-                        self.UndoneCheckouts.append(CardView(date: Date(), name: "Nothing new!", type: "none", desc: "you're up to date", email: "", done: false, fireID: ""))
+                        self.UndoneCheckouts.append(CardView(date: "Date()", name: "Nothing new!", type: "none", desc: "you're up to date", email: "", done: false, fireID: ""))
                     }
                   }
                 

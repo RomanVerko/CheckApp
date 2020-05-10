@@ -21,14 +21,14 @@ struct TestView: View {
     @Environment(\.presentationMode) var presentationMode
     var mode = ["Module results", "Mental health"]
     var selectorIndex = 0
-    let date = Date()
+    let date = ""
     let formatter = DateFormatter()
     var cardView:CardView
     
    
     init(cardView: CardView){
         self.cardView = cardView
-        self.formatter.dateFormat = "MMM d, h:mm"
+        self.formatter.dateFormat = "MM-dd-yyyy HH:mm"
     }
     
     
@@ -196,7 +196,7 @@ struct TestView: View {
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView(cardView: CardView(date: Date(), name: "Everyday check", type: "Mental health", desc: "Daily",
+        TestView(cardView: CardView(date: "Date()", name: "Everyday check", type: "Mental health", desc: "Daily",
                                     email: "rmimamov@edu.hse.ru", done: false, fireID: "0101010101"))
     }
 }

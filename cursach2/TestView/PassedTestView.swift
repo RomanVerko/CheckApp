@@ -10,7 +10,7 @@ import SwiftUI
 import Firebase
 
 struct passedData{
-    var date: Date = Date()
+    var date = ""
     var name:String = ""
     var type:String = ""
     var desc:String = ""
@@ -19,7 +19,7 @@ struct passedData{
     var aim = ""
     var progress = 0.0
     var achievements = ""
-    var dateDone = Date()
+    var dateDone = ""
     
     init(){
         
@@ -75,6 +75,6 @@ struct PassedTestView: View {
 
 struct PassedTestView_Previews: PreviewProvider {
     static var previews: some View {
-        PassedTestView(cardView: CardView(date: Date(), name: "name", type: "Module results", desc: "desc", email: "email", done: true, fireID: "01010"))
+        PassedTestView(cardView: CardView(date: "", name: "name", type: "Module results", desc: "desc", email: "email", done: true, fireID: "01010"))
     }
 }

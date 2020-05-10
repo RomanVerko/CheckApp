@@ -55,7 +55,7 @@ struct GraphicsView: View {
                     print(i["date"] as? Date ?? Date())
                     self.checks.append(check)
                 }
-                
+                self.checks.sort(by: { $0.dateDone > $1.dateDone })
             }
         }
         
